@@ -149,4 +149,54 @@ can't guarantee that exactly these actions will be performed if
 #### - _terraform apply_
 ```
 > terraform apply
+
+An execution plan has been generated and is shown below.
+Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # aws_dynamodb_table.hello_wold will be created
+  + resource "aws_dynamodb_table" "hello_wold" {
+      + arn              = (known after apply)
+      + billing_mode     = "PROVISIONED"
+      + hash_key         = "id"
+      + id               = (known after apply)
+      + name             = "hello-wold"
+      + read_capacity    = 1
+      + stream_arn       = (known after apply)
+      + stream_label     = (known after apply)
+      + stream_view_type = (known after apply)
+      + write_capacity   = 1
+
+      + attribute {
+          + name = "id"
+          + type = "S"
+        }
+
+      + point_in_time_recovery {
+          + enabled = (known after apply)
+        }
+
+      + server_side_encryption {
+          + enabled     = (known after apply)
+          + kms_key_arn = (known after apply)
+        }
+    }
+
+Plan: 1 to add, 0 to change, 0 to destroy.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+aws_dynamodb_table.hello_wold: Creating...
+aws_dynamodb_table.hello_wold: Creation complete after 8s [id=hello-wold]
+
+Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
+
 ```
+
+
