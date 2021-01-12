@@ -2,8 +2,8 @@
 
 ## [Acesso ao Curso na Udemy](https://www.udemy.com/course/aws-cloud-native-com-terraform-serverless-framework/learn/lecture/15820174#overview)
 
-
 ## 1 **CONTA NO AWS**
+
 - Será necessário uma conta na AWS;
 - Criação do usuário de nome: terraform-serverless-framework;
 - Configurar o usuário com acesso total;
@@ -33,7 +33,6 @@
 > sudo npm install serverless -g
 
 ```
-
 ### 2.2 _Testando o Serverless Framework_
 
 ```
@@ -47,7 +46,6 @@ Plugin: 4.4.1
 SDK: 2.3.2
 Components: 3.4.3
 ```
-
 ## 3 **TERRAFORM FRAMEWORK**
 
 ### 3.1 _Configurando o Terraform Framework_
@@ -68,6 +66,9 @@ Terraform v0.14.4
 ### 3.3 _Comandos do Terraform Framewiork_
 
 #### - _terraform init_
+
+- Iniciando o terraform na pasta atual
+
 ```
 > terraform init
 
@@ -98,6 +99,9 @@ commands will detect it and remind you to do so if necessary.
 ```
 
 #### - _terraform plan_
+
+- Verificando o Plano criado com o Terraform 
+
 ```
 > terraform plan 
 
@@ -145,10 +149,9 @@ Note: You didn't specify an "-out" parameter to save this plan, so Terraform
 can't guarantee that exactly these actions will be performed if
 "terraform apply" is subsequently run.
 ```
-
 #### - _terraform apply_
 
-- Aplicar todo os recursos do porjeto criado em terraform na AWS
+- Aplicar todo os recursos do projeto criado em terraform na AWS
 
 ```
 > terraform apply
@@ -218,7 +221,7 @@ Apply complete! Resources: 0 added, 0 changed, 0 destroyed.
 
 ```
 
-- Mudando o nome da Tabele de hello-wold para **hello_wold**
+- Mudando o nome da Tabela de hello-wold para **hello_wold**
 
 
 ```
@@ -289,11 +292,46 @@ Destroy complete! Resources: 1 destroyed.
 
 ```
 
-#### - _terraform destroy_
+### 3.4 _VARIAVEIS no Terraform_
 
-- Distruir toda a infraestrutura criada com o Terraform.
+3.4.1  Arquivo: variables.tf
+
+- Arquivo com a configuração das variaveis.
 
 ```
-> terraform destroy
+variable "environment" {
+
+  type        = "string"
+  description = "Tabela Hello World"
+  default     = "dev"  
+  
+}
+
+```
+
+3.4.2 Arquivo: variables.auto.tfvars
+
+- Arquivo com os valores das variáveis definidas em variable.tf
+
+```
+environment = "dev"
+
+```
+
+3.4.3 Arquivo: main.ft
+
+```
+resource "aws_dynamodb_table" "hello_wold" {
+  
+  name = "${var.environment}_hello_wold"
+  hash_key = "id"
+  write_capacity = 1
+  read_capacity = 1
+
+  attribute {
+    name = "id"
+    type = "S"
+  }
+}
 
 ```
