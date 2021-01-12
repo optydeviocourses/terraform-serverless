@@ -288,3 +288,12 @@ aws_dynamodb_table.hello_wold: Destruction complete after 2s
 Destroy complete! Resources: 1 destroyed.
 
 ```
+
+#### - _terraform destroy_
+
+- Distruir toda a infraestrutura criada com o Terraform.
+
+```
+> terraform destroy
+
+```
