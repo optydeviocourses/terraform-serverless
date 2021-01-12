@@ -9,5 +9,4 @@ resource "aws_dynamodb_table" "hello_wold" {
     name = "id"
     type = "S"
   }
-  
 }

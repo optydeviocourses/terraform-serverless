@@ -147,6 +147,9 @@ can't guarantee that exactly these actions will be performed if
 ```
 
 #### - _terraform apply_
+
+- Aplicar todo os recursos do porjeto criado em terraform na AWS
+
 ```
 > terraform apply
 
@@ -199,4 +202,98 @@ Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 
 ```
 
+#### - _terraform apply -auto-approve_
 
+- Não apresentar o PLAN antes de fazer o Apply na infraestrutura.
+
+```
+> terraform apply -auto-approve
+
+## Resultado
+
+aws_dynamodb_table.hello_wold: Refreshing state... [id=hello-wold]
+
+Apply complete! Resources: 0 added, 0 changed, 0 destroyed.
+
+
+```
+
+- Mudando o nome da Tabele de hello-wold para **hello_wold**
+
+
+```
+> terraform apply -auto-approve
+
+## Resultado
+
+aws_dynamodb_table.hello_wold: Refreshing state... [id=hello-wold]
+aws_dynamodb_table.hello_wold: Destroying... [id=hello-wold]
+aws_dynamodb_table.hello_wold: Destruction complete after 3s
+aws_dynamodb_table.hello_wold: Creating...
+aws_dynamodb_table.hello_wold: Creation complete after 8s [id=hello_wold]
+
+```
+
+#### - _terraform destroy_
+
+- Distruir toda a infraestrutura criada com o Terraform.
+
+```
+> terraform destroy
+
+## Resultado
+
+An execution plan has been generated and is shown below.
+Resource actions are indicated with the following symbols:
+  - destroy
+
+Terraform will perform the following actions:
+
+  # aws_dynamodb_table.hello_wold will be destroyed
+  - resource "aws_dynamodb_table" "hello_wold" {
+      - arn            = "arn:aws:dynamodb:us-east-1:507025226413:table/hello_wold" -> null
+      - billing_mode   = "PROVISIONED" -> null
+      - hash_key       = "id" -> null
+      - id             = "hello_wold" -> null
+      - name           = "hello_wold" -> null
+      - read_capacity  = 1 -> null
+      - stream_enabled = false -> null
+      - write_capacity = 1 -> null
+
+      - attribute {
+          - name = "id" -> null
+          - type = "S" -> null
+        }
+
+      - point_in_time_recovery {
+          - enabled = false -> null
+        }
+
+      - ttl {
+          - enabled = false -> null
+        }
+    }
+
+Plan: 0 to add, 0 to change, 1 to destroy.
+
+Do you really want to destroy all resources?
+  Terraform will destroy all your managed infrastructure, as shown above.
+  There is no undo. Only 'yes' will be accepted to confirm.
+
+  Enter a value: yes
+
+aws_dynamodb_table.hello_wold: Destroying... [id=hello_wold]
+aws_dynamodb_table.hello_wold: Destruction complete after 2s
+
+Destroy complete! Resources: 1 destroyed.
+
+```
+
+#### - _terraform destroy_
+
+- Distruir toda a infraestrutura criada com o Terraform.
+
+```
+> terraform destroy
+
+```
