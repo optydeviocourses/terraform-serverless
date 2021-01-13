@@ -292,6 +292,18 @@ Destroy complete! Resources: 1 destroyed.
 
 ```
 
+#### - _terraform destroy -auto-approve
+
+```
+> terraform destroy
+
+## Resultado
+module.hello.aws_dynamodb_table.hello_wold: Destroying... [id=dev-hello-wold]
+module.hello.aws_dynamodb_table.hello_wold: Destruction complete after 2s
+
+```
+
+
 ### 3.4 _VARIAVEIS no Terraform_
 
 3.4.1  Arquivo: variables.tf
@@ -335,3 +347,83 @@ resource "aws_dynamodb_table" "hello_wold" {
 }
 
 ```
+
+### 3.5 _MÓDULOS no Terraform_
+
++environments
+  - dev
+  - pro
++infra
+  - hello
+
+3.5.1  Arquivos: ./terraform/environments/dev/main.tf 
+
+- Arquivo com a configuração do módulo em desenvolvimento.
+
+```
+module "hello" {
+  
+  source      = "../../infra/hello"
+  environment = "${var.environment}"
+  write_capacity = 1
+  read_capacity = 1
+  
+}
+```
+
+3.5.2 Arquivos: e ./terraform/environments/prod/main.tf
+
+- Arquivo com a configuração do módulo em produção.
+
+```
+module "hello" {
+  
+  source      = "../../infra/hello"
+  environment = "${var.environment}"
+  write_capacity = 10
+  read_capacity = 10
+  
+}
+```
+
+3.5.2 Arquivo: ./terraform/infra/hello/aws_dynamodb_table.tf
+
+- Injeção das variaveis desclaradas no ./terraform/infra/hello/**variables.tf**
+```
+resource "aws_dynamodb_table" "hello_wold" {
+  
+  name = "${var.environment}-hello-wold"
+  hash_key = "id"
+ 
+  attribute {
+    name = "id"
+    type = "S"
+  }
+
+  write_capacity = "${var.write_capacity}"
+  read_capacity = "${var.read_capacity}"
+
+}
+```
+
+3.5.3  Arquivo: ./terraform/infra/hello/**variable.tf**
+
+- Declaração das variaveis para a injeção
+
+```
+variable "environment" {
+  
+}
+
+variable "read_capacity" {
+
+
+}
+
+variable "write_capacity" {
+
+ 
+}
+```
+
+terraform destroy -auto-approve
