@@ -46,7 +46,6 @@ Plugin: 4.4.1
 SDK: 2.3.2
 Components: 3.4.3
 ```
-
 ### 2.3 _Comandos do Serverless Framework_
 
 #### - _sls deploy_
@@ -104,30 +103,24 @@ Serverless: Stack delete finished...
 
 ```
 
-#### - _sls --stage_
-```
-> sls --stage
+#### - _sls --stage prod_
 
 ```
-
-#### - _sls deploy_
-```
-> sls create --template aws-nodejs --path hello-hello_wold
+> sls --stage prod
 
 ```
-
-#### - _sls deploy_
-```
-> sls create --template aws-nodejs --path hello-hello_wold
-
-```
-
-
 ## 3 **TERRAFORM FRAMEWORK**
 
 ### 3.1 _Configurando o Terraform Framework_
 ```
 > mv ~/Downloads/terraform /usr/local/bin
+
+```
+
+### - _sls remove --stage prod_
+
+```
+> sls remove --stage prod
 
 ```
 
