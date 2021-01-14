@@ -66,7 +66,7 @@ functions:
 #    Check the event documentation for details
     events:
       - httpApi:
-          path: /users/create
+          path: /hello
           method: get
 #      - websocket: $connect
 #      - s3: ${env:BUCKET}
