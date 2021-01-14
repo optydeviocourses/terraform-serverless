@@ -46,6 +46,59 @@ Plugin: 4.4.1
 SDK: 2.3.2
 Components: 3.4.3
 ```
+
+### 2.3 _Comandos do Serverless Framework_
+
+#### - _sls deploy_
+```
+> sls create --template aws-nodejs --path hello-hello_wold
+
+## Resultado
+Serverless: Generating boilerplate...
+Serverless: Generating boilerplate in "/Volumes/ROBERTO-CD2/Dev/Estudos/TI/clouds/aws/terraform-serverless/hello-world"
+ _______                             __
+|   _   .-----.----.--.--.-----.----|  .-----.-----.-----.
+|   |___|  -__|   _|  |  |  -__|   _|  |  -__|__ --|__ --|
+|____   |_____|__|  \___/|_____|__| |__|_____|_____|_____|
+|   |   |             The Serverless Application Framework
+|       |                           serverless.com, v2.17.0
+ -------'
+
+Serverless: Successfully generated boilerplate for template: "aws-nodejs"
+
+```
+
+#### - _sls deploy_
+```
+> sls deploy
+
+```
+
+#### - _sls remove_
+```
+> sls remove
+
+```
+
+#### - _sls --stage_
+```
+> sls --stage
+
+```
+
+#### - _sls deploy_
+```
+> sls create --template aws-nodejs --path hello-hello_wold
+
+```
+
+#### - _sls deploy_
+```
+> sls create --template aws-nodejs --path hello-hello_wold
+
+```
+
+
 ## 3 **TERRAFORM FRAMEWORK**
 
 ### 3.1 _Configurando o Terraform Framework_
