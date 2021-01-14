@@ -103,10 +103,10 @@ Serverless: Stack delete finished...
 
 ```
 
-#### - _sls --stage prod_
+#### - _sls remove --stage prod_
 
 ```
-> sls --stage prod
+> sls remove --stage prod
 
 ```
 ## 3 **TERRAFORM FRAMEWORK**
