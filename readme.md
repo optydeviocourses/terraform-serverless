@@ -117,20 +117,15 @@ Serverless: Stack delete finished...
 
 ```
 
-### - _sls remove --stage prod_
-
-```
-> sls remove --stage prod
-
-```
-
 ### 3.2 _Testando o Terraform Framework_
+
 ```
 > terraform -v
 
 ## Resultado
 /Volumes/ROBERTO-CD2/Dev/Projetos/aws/terraform-serverless (master ✘)✹ ᐅ terraform -v       
 Terraform v0.14.4
+
 ```
 
 ### 3.3 _Comandos do Terraform Framewiork_
