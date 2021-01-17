@@ -13,7 +13,7 @@ resource "aws_dynamodb_table" "users" {
 
 }
 
-resource "aws_ssm_parameter" "dynamodb-users-table" {
+resource "aws_ssm_parameter" "dynamodb_users_table" {
 	
   name = "${var.environment}-dynamodb-users-table"
 	type = "String"
