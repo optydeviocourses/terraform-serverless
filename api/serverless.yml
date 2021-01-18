@@ -10,17 +10,16 @@ provider:
   stage: dev
   region: us-east-1
 
-  environment:
-    DYNAMODB_USERS: ${ssm:${self:custom.stage}-dynamodb-users-table}
-    
 functions:
   register:
     handler: register/handler.register
+    environment:
+      DYNAMODB_USERS: ${ssm:${self:custom.stage}-dynamodb-users-table}
+
     events:
-      - http:
-          path: users
+      - httpApi:
+          path: /users/create
           method: post
 
 custom:
   stage: ${opt:stage, self:provider.stage}
-
