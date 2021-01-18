@@ -20,6 +20,12 @@ functions:
       - httpApi:
           path: /users/create
           method: post
-
+      - http:
+          path: /
+          method: ANY
+      - http:
+          path: /{proxy+}
+          method: ANY
+      
 custom:
   stage: ${opt:stage, self:provider.stage}

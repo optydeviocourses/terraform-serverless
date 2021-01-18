@@ -17,9 +17,13 @@ resource "aws_iam_role" "register_iam_role" {
   ]
 }
 EOF
-
-  tags = {
-    tag-key = "tag-value"
-  }
-  
 }
+
+resource "aws_ssm_parameter" "register_iam_role" {
+  
+  name = "${var.environment}-register-iam-role"
+  type = "String"
+  value =  "${aws_iam_role.register_iam_role.arn}"
+
+}
+

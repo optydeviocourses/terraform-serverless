@@ -1,5 +1,6 @@
 resource "aws_iam_policy" "register_policy" {
-  name        = "${var.environment}-register-policy"
+
+  name = "${var.environment}-register-policy"
   
   policy = <<EOF
 {
@@ -15,4 +16,5 @@ resource "aws_iam_policy" "register_policy" {
   ]
 }
 EOF
+
 }
