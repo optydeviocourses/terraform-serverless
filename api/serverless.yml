@@ -2,6 +2,7 @@ service: api
 #org: optydeviocourses
 #app: app-api
 frameworkVersion: '2'
+configValidationMode: error
 
 provider:
   name: aws

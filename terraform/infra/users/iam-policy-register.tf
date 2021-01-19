@@ -14,12 +14,19 @@ resource "aws_iam_policy" "register_policy" {
       "Resource": "${aws_dynamodb_table.users.arn}"
     },
     {
-      "Effect": "Allow",
       "Action": [
           "logs:CreateLogGroup",
           "logs:CreateLogStream",
           "logs:PutLogEvents"
       ],
+      "Effect": "Allow",
+      "Resource": "*"
+    },
+    {
+      "Action": [
+        "lambda:*"
+      ],
+      "Effect": "Allow",
       "Resource": "*"
     }
   ]
