@@ -1,0 +1,26 @@
+{
+  "name": "terraform-serverless",
+  "version": "1.0.0",
+  "description": "## [Acesso ao Curso na Udemy](https://www.udemy.com/course/aws-cloud-native-com-terraform-serverless-framework/learn/lecture/15820174#overview)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/optydeviocourses/terraform-serverless.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/optydeviocourses/terraform-serverless/issues"
+  },
+  "homepage": "https://github.com/optydeviocourses/terraform-serverless#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "aws-sdk": "^2.829.0"
+  }
+}
