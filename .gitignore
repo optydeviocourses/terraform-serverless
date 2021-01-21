@@ -1,4 +1,8 @@
 # csv
+api-temp/
+api-temp/register/
+
+# csv
 *.csv
 
 # Logs
