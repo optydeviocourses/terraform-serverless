@@ -25,99 +25,15 @@
 > Default region name [sa-east-1]: 
 > Default output format [json]: 
 ```
-## 2 **SERVERLESS FRAMEWORK**
+## 2 **TERRAFORM FRAMEWORK**
 
-### 2.1 _Configurando o Serverless Framework_
-
-```
-> sudo npm install serverless -g
-
-```
-### 2.2 _Testando o Serverless Framework_
-
-```
-> serverless -v
-> sls -v  # Alias
-
-## Resultados
-/Volumes/ROBERTO-CD2/Dev/Projetos/aws/terraform-serverless (master ✘)✹ ᐅ sls -v
-Framework Core: 2.17.0
-Plugin: 4.4.1
-SDK: 2.3.2
-Components: 3.4.3
-```
-### 2.3 _Comandos do Serverless Framework_
-
-#### - _sls deploy_
-```
-> sls create --template aws-nodejs --path hello-world
-
-## Resultado
-Serverless: Generating boilerplate...
-Serverless: Generating boilerplate in "/Volumes/ROBERTO-CD2/Dev/Estudos/TI/clouds/aws/terraform-serverless/hello-world"
- _______                             __
-|   _   .-----.----.--.--.-----.----|  .-----.-----.-----.
-|   |___|  -__|   _|  |  |  -__|   _|  |  -__|__ --|__ --|
-|____   |_____|__|  \___/|_____|__| |__|_____|_____|_____|
-|   |   |             The Serverless Application Framework
-|       |                           serverless.com, v2.17.0
- -------'
-
-Serverless: Successfully generated boilerplate for template: "aws-nodejs"
-
-```
-
-#### - _sls deploy_
-```
-> sls deploy
-
-## Resultado
-
-Serverless: Packaging service...
-Serverless: Excluding development dependencies...
-Serverless: Creating Stack...
-Serverless: Checking Stack create progress...
-........
-Serverless: Stack create finished...
-Serverless: Uploading CloudFormation file to S3...
-Serverless: Uploading artifacts...
-Serverless: Uploading service hello-world.zip file to S3 (390 B)...
-Serverless: Validating template...
-Serverless: Updating Stack...
-Serverless: Checking Stack update progress...
-
-```
-
-#### - _sls remove_
-```
-> sls remove
-
-## Resultado
-
-Serverless: Getting all objects in S3 bucket...
-Serverless: Removing objects in S3 bucket...
-Serverless: Removing Stack...
-Serverless: Checking Stack delete progress...
-
-Serverless: Stack delete finished...
-
-```
-
-#### - _sls remove --stage prod_
-
-```
-> sls remove --stage prod
-
-```
-## 3 **TERRAFORM FRAMEWORK**
-
-### 3.1 _Configurando o Terraform Framework_
+### 2.1 _Configurando o Terraform Framework_
 ```
 > mv ~/Downloads/terraform /usr/local/bin
 
 ```
 
-### 3.2 _Testando o Terraform Framework_
+### 2.2 _Testando o Terraform Framework_
 
 ```
 > terraform -v
@@ -128,7 +44,7 @@ Terraform v0.14.4
 
 ```
 
-### 3.3 _Comandos do Terraform Framewiork_
+### 2.3 _Comandos do Terraform Framewiork_
 
 #### - _terraform init_
 
@@ -369,7 +285,7 @@ module.hello.aws_dynamodb_table.hello_wold: Destruction complete after 2s
 ```
 
 
-### 3.4 _VARIAVEIS no Terraform_
+### 2.4 _VARIAVEIS no Terraform_
 
 3.4.1  Arquivo: variables.tf
 
@@ -386,7 +302,7 @@ variable "environment" {
 
 ```
 
-3.4.2 Arquivo: variables.auto.tfvars
+### 2.4.2 Arquivo: variables.auto.tfvars
 
 - Arquivo com os valores das variáveis definidas em variable.tf
 
@@ -395,7 +311,7 @@ environment = "dev"
 
 ```
 
-3.4.3 Arquivo: main.ft
+### 2.4.3 Arquivo: main.ft
 
 ```
 resource "aws_dynamodb_table" "hello_wold" {
@@ -413,7 +329,7 @@ resource "aws_dynamodb_table" "hello_wold" {
 
 ```
 
-### 3.5 _MÓDULOS no Terraform_
+### 2.5 _MÓDULOS no Terraform_
 
 +environments
   - dev
@@ -471,7 +387,7 @@ resource "aws_dynamodb_table" "hello_wold" {
 }
 ```
 
-3.5.3  Arquivo: ./terraform/infra/hello/**variable.tf**
+### 2.5.3  Arquivo: ./terraform/infra/hello/**variable.tf**
 
 - Declaração das variaveis para a injeção
 
@@ -491,4 +407,151 @@ variable "write_capacity" {
 }
 ```
 
-terraform destroy -auto-approve
+## terraform destroy -auto-approve
+
+
+## 3 **SERVERLESS FRAMEWORK**
+
+### 3.1 _Configurando o Serverless Framework_
+
+```
+> sudo npm install serverless -g
+
+```
+### 3.2 _Testando o Serverless Framework_
+
+```
+> serverless -v
+> sls -v  # Alias
+
+## Resultados
+/Volumes/ROBERTO-CD2/Dev/Projetos/aws/terraform-serverless (master ✘)✹ ᐅ sls -v
+Framework Core: 2.17.0
+Plugin: 4.4.1
+SDK: 2.3.2
+Components: 3.4.3
+```
+### 3.3 _Comandos do Serverless Framework_
+
+#### - _sls deploy_
+```
+> sls create --template aws-nodejs --path hello-world
+
+## Resultado
+Serverless: Generating boilerplate...
+Serverless: Generating boilerplate in "/Volumes/ROBERTO-CD2/Dev/Estudos/TI/clouds/aws/terraform-serverless/hello-world"
+ _______                             __
+|   _   .-----.----.--.--.-----.----|  .-----.-----.-----.
+|   |___|  -__|   _|  |  |  -__|   _|  |  -__|__ --|__ --|
+|____   |_____|__|  \___/|_____|__| |__|_____|_____|_____|
+|   |   |             The Serverless Application Framework
+|       |                           serverless.com, v2.17.0
+ -------'
+
+Serverless: Successfully generated boilerplate for template: "aws-nodejs"
+
+```
+
+#### - _sls deploy_
+```
+> sls deploy
+
+## Resultado
+
+ls deploy -v
+Serverless: Packaging service...
+Serverless: Excluding development dependencies...
+Serverless: Creating Stack...
+Serverless: Checking Stack create progress...
+CloudFormation - CREATE_IN_PROGRESS - AWS::CloudFormation::Stack - api-dev
+CloudFormation - CREATE_IN_PROGRESS - AWS::S3::Bucket - ServerlessDeploymentBucket
+CloudFormation - CREATE_IN_PROGRESS - AWS::S3::Bucket - ServerlessDeploymentBucket
+CloudFormation - CREATE_COMPLETE - AWS::S3::Bucket - ServerlessDeploymentBucket
+CloudFormation - CREATE_IN_PROGRESS - AWS::S3::BucketPolicy - ServerlessDeploymentBucketPolicy
+CloudFormation - CREATE_IN_PROGRESS - AWS::S3::BucketPolicy - ServerlessDeploymentBucketPolicy
+CloudFormation - CREATE_COMPLETE - AWS::S3::BucketPolicy - ServerlessDeploymentBucketPolicy
+CloudFormation - CREATE_COMPLETE - AWS::CloudFormation::Stack - api-dev
+Serverless: Stack create finished...
+Serverless: Uploading CloudFormation file to S3...
+Serverless: Uploading artifacts...
+Serverless: Uploading service api.zip file to S3 (549 B)...
+Serverless: Validating template...
+Serverless: Updating Stack...
+Serverless: Checking Stack update progress...
+CloudFormation - UPDATE_IN_PROGRESS - AWS::CloudFormation::Stack - api-dev
+CloudFormation - CREATE_IN_PROGRESS - AWS::Logs::LogGroup - RegisterLogGroup
+CloudFormation - CREATE_IN_PROGRESS - AWS::ApiGatewayV2::Api - HttpApi
+CloudFormation - CREATE_IN_PROGRESS - AWS::Logs::LogGroup - RegisterLogGroup
+CloudFormation - CREATE_COMPLETE - AWS::Logs::LogGroup - RegisterLogGroup
+CloudFormation - CREATE_IN_PROGRESS - AWS::Lambda::Function - RegisterLambdaFunction
+CloudFormation - CREATE_IN_PROGRESS - AWS::ApiGatewayV2::Api - HttpApi
+CloudFormation - CREATE_COMPLETE - AWS::ApiGatewayV2::Api - HttpApi
+CloudFormation - CREATE_IN_PROGRESS - AWS::Lambda::Function - RegisterLambdaFunction
+CloudFormation - CREATE_COMPLETE - AWS::Lambda::Function - RegisterLambdaFunction
+CloudFormation - CREATE_IN_PROGRESS - AWS::ApiGatewayV2::Stage - HttpApiStage
+CloudFormation - CREATE_IN_PROGRESS - AWS::Lambda::Permission - RegisterLambdaPermissionHttpApi
+CloudFormation - CREATE_IN_PROGRESS - AWS::ApiGatewayV2::Integration - HttpApiIntegrationRegister
+CloudFormation - CREATE_IN_PROGRESS - AWS::ApiGatewayV2::Stage - HttpApiStage
+CloudFormation - CREATE_IN_PROGRESS - AWS::Lambda::Permission - RegisterLambdaPermissionHttpApi
+CloudFormation - CREATE_COMPLETE - AWS::ApiGatewayV2::Stage - HttpApiStage
+CloudFormation - CREATE_IN_PROGRESS - AWS::Lambda::Version - RegisterLambdaVersionv2cubMDthjQ7upwxlz83AOuhv765yY71HMZUWYwipRo
+CloudFormation - CREATE_IN_PROGRESS - AWS::Lambda::Version - RegisterLambdaVersionv2cubMDthjQ7upwxlz83AOuhv765yY71HMZUWYwipRo
+CloudFormation - CREATE_COMPLETE - AWS::Lambda::Version - RegisterLambdaVersionv2cubMDthjQ7upwxlz83AOuhv765yY71HMZUWYwipRo
+CloudFormation - CREATE_IN_PROGRESS - AWS::ApiGatewayV2::Integration - HttpApiIntegrationRegister
+CloudFormation - CREATE_COMPLETE - AWS::ApiGatewayV2::Integration - HttpApiIntegrationRegister
+CloudFormation - CREATE_IN_PROGRESS - AWS::ApiGatewayV2::Route - HttpApiRoutePostUsersCreate
+CloudFormation - CREATE_IN_PROGRESS - AWS::ApiGatewayV2::Route - HttpApiRoutePostUsersCreate
+CloudFormation - CREATE_COMPLETE - AWS::ApiGatewayV2::Route - HttpApiRoutePostUsersCreate
+CloudFormation - CREATE_COMPLETE - AWS::Lambda::Permission - RegisterLambdaPermissionHttpApi
+CloudFormation - UPDATE_COMPLETE_CLEANUP_IN_PROGRESS - AWS::CloudFormation::Stack - api-dev
+CloudFormation - UPDATE_COMPLETE - AWS::CloudFormation::Stack - api-dev
+Serverless: Stack update finished...
+Service Information
+service: api
+stage: dev
+region: us-east-1
+stack: api-dev
+resources: 10
+api keys:
+  None
+endpoints:
+  POST - https://yopqm8pwp5.execute-api.us-east-1.amazonaws.com/users/create
+functions:
+  register: api-dev-register
+layers:
+  None
+
+Stack Outputs
+RegisterLambdaFunctionQualifiedArn: arn:aws:lambda:us-east-1:623616127943:function:api-dev-register:1
+HttpApiId: yopqm8pwp5
+ServerlessDeploymentBucketName: api-dev-serverlessdeploymentbucket-6z39gohi03gy
+HttpApiUrl: https://yopqm8pwp5.execute-api.us-east-1.amazonaws.com
+
+
+**************************************************************************************************************************************
+Serverless: Announcing Metrics, CI/CD, Secrets and more built into Serverless Framework. Run "serverless login" to activate for free..
+**************************************************************************************************************************************
+
+```
+
+#### - _sls remove_
+```
+> sls remove
+
+## Resultado
+
+Serverless: Getting all objects in S3 bucket...
+Serverless: Removing objects in S3 bucket...
+Serverless: Removing Stack...
+Serverless: Checking Stack delete progress...
+
+Serverless: Stack delete finished...
+
+```
+
+#### - _sls remove --stage prod_
+
+```
+> sls remove --stage prod
+
+```
