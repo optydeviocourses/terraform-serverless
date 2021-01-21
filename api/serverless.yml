@@ -8,13 +8,14 @@ provider:
   name: aws
   runtime: nodejs12.x
   lambdaHashingVersion: 20201221
+  # apiGateway:
+  #   shouldStartNameWithService: true
 
   stage: dev
   region: us-east-1
   
 functions:
   register:
-    
     role: ${ssm:${self:custom.stage}-register-iam-role}
     handler: register/handler.register
 
