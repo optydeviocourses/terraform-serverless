@@ -13,7 +13,9 @@ const bcrypt = require('bcryptjs')
 const uuid = require('uuid/v4')
 
 module.exports.register = async event => {
+  
   const body = JSON.parse(event.body)
+  
   await documentCliente.put({
     TableName: process.env.DYNAMODB_USERS,
     Item: {
