@@ -13,3 +13,7 @@ variable "read_capacity" {
 variable "region" {
 
 }
+
+variable "jwt_secret" {
+
+}
