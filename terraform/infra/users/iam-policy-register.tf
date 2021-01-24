@@ -21,13 +21,6 @@ resource "aws_iam_policy" "register_policy" {
       ],
       "Effect": "Allow",
       "Resource": "*"
-    },
-    {
-      "Action": [
-        "lambda:*"
-      ],
-      "Effect": "Allow",
-      "Resource": "*"
     }
   ]
 }
