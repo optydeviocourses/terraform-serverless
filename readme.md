@@ -555,3 +555,28 @@ Serverless: Stack delete finished...
 > sls remove --stage prod
 
 ```
+
+## Configurar os pacotes NPMs
+
+### aws-sdk
+```
+> npm i aws-sdk --save-dev
+```
+
+### Token
+```
+> npm i jsonwebtoken
+```
+
+### Biblioteca BCryptjs
+```
+> npm i bcryptjs
+```
+
+### UUID
+```
+> npm i uuid
+```
+
+
+
