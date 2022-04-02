@@ -1,9 +1,9 @@
 
 module "hello" {
   
-  source      = "../../infra/hello"
+  source      = "../../infra/users"
   environment = "${var.environment}"
-  write_capacity = 10
-  read_capacity = 10
+  write_capacity = 1
+  read_capacity = 1
   
 }

@@ -1,0 +1,5 @@
+{
+  "yaml.schemas": {
+    "https://raw.githubusercontent.com/lalcebo/json-schema/master/serverless/reference.json": "file:///Users/carlosroberto/Documents/Projects/terraform-serverless/api/serverless.yml"
+  }
+}

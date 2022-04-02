@@ -492,3 +492,20 @@ variable "write_capacity" {
 ```
 
 terraform destroy -auto-approve
+
+
+
+## **4. Aula 29** - _Implementação Lambda Register_
+
+4.1 Instalando componentes npm 
+```
+cd /api
+npm init
+npm i uuid
+npm i bcryptjs
+
+# como dev
+npm i aws-sdk --save-dev
+```
+
+
