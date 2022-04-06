@@ -1,7 +1,6 @@
 {
   "name": "api",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,6 +12,7 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "aws-sdk": "^2.1106.0"
-  }
+    "aws-sdk": "^2.1109.0"
+  },
+  "description": ""
 }

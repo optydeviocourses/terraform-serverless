@@ -395,8 +395,7 @@ variable "environment" {
 
   type        = "string"
   description = "Tabela Hello World"
-  default     = "dev"  
-  
+  default     = "dev"
 }
 
 ```
@@ -494,17 +493,12 @@ resource "aws_dynamodb_table" "hello_wold" {
 
 ```
 variable "environment" {
-  
 }
 
 variable "read_capacity" {
-
-
 }
 
 variable "write_capacity" {
-
- 
 }
 ```
 
