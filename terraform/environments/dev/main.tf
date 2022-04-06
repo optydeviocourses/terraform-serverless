@@ -1,6 +1,7 @@
 module "users" {
-  source      = "../../infra/users"
+  source= "../../infra/users"
   environment = "${var.environment}"
-  write_capacity = 1
-  read_capacity = 1
+  write_capacity = "${var.write_capacity}"
+  read_capacity = "${var.read_capacity}"
+  region = "${var.region}"
 }

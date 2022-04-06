@@ -10,6 +10,7 @@
 - Salvar o Access Key e Secret Access Key ID.
 
 ## 1.1 **AWS CLI**
+
 ### 1.1.1 _Configurando o AWS CLI_
 
 ```
@@ -20,11 +21,12 @@
 ## AWS CONFIGURE
 ## usuario: terraform-serverless
 > aws configure 
-> AWS Access Key ID [****************RVCA]: AKIAXMDIO7KWZQGIPYNK
-> AWS Secret Access Key [****************ZK4l]: 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
+> AWS Access Key ID [****************RVCA]: AKIA5LZOAHQXD2PWO7UC
+> AWS Secret Access Key [****************ZK4l]: 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
 > Default region name [sa-east-1]: 
 > Default output format [json]: 
 ```
+
 ## 2 **SERVERLESS FRAMEWORK**
 
 ### 2.1 _Configurando o Serverless Framework_
@@ -33,7 +35,15 @@
 > sudo npm install serverless -g
 
 ```
+
 ### 2.2 _Testando o Serverless Framework_
+
+```
+sls config credentials 
+  --provider "aws" 
+  --key "AKIA5LZOAHQXD2PWO7UC" 
+  --secret "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" -o 
+```
 
 ```
 > serverless -v
@@ -46,9 +56,11 @@ Plugin: 4.4.1
 SDK: 2.3.2
 Components: 3.4.3
 ```
+
 ### 2.3 _Comandos do Serverless Framework_
 
 #### - _sls deploy_
+
 ```
 > sls create --template aws-nodejs --path hello-world
 
@@ -68,6 +80,7 @@ Serverless: Successfully generated boilerplate for template: "aws-nodejs"
 ```
 
 #### - _sls deploy_
+
 ```
 > sls deploy
 
@@ -89,6 +102,7 @@ Serverless: Checking Stack update progress...
 ```
 
 #### - _sls remove_
+
 ```
 > sls remove
 
@@ -109,9 +123,11 @@ Serverless: Stack delete finished...
 > sls remove --stage prod
 
 ```
+
 ## 3 **TERRAFORM FRAMEWORK**
 
 ### 3.1 _Configurando o Terraform Framework_
+
 ```
 > mv ~/Downloads/terraform /usr/local/bin
 
@@ -165,7 +181,7 @@ commands will detect it and remind you to do so if necessary.
 
 #### - _terraform plan_
 
-- Verificando o Plano criado com o Terraform 
+- Verificando o Plano criado com o Terraform
 
 ```
 > terraform plan 
@@ -214,6 +230,7 @@ Note: You didn't specify an "-out" parameter to save this plan, so Terraform
 can't guarantee that exactly these actions will be performed if
 "terraform apply" is subsequently run.
 ```
+
 #### - _terraform apply_
 
 - Aplicar todo os recursos do projeto criado em terraform na AWS
@@ -287,7 +304,6 @@ Apply complete! Resources: 0 added, 0 changed, 0 destroyed.
 ```
 
 - Mudando o nome da Tabela de hello-wold para **hello_wold**
-
 
 ```
 > terraform apply -auto-approve
@@ -368,7 +384,6 @@ module.hello.aws_dynamodb_table.hello_wold: Destruction complete after 2s
 
 ```
 
-
 ### 3.4 _VARIAVEIS no Terraform_
 
 3.4.1  Arquivo: variables.tf
@@ -416,12 +431,13 @@ resource "aws_dynamodb_table" "hello_wold" {
 ### 3.5 _MÓDULOS no Terraform_
 
 +environments
-  - dev
-  - pro
-+infra
-  - hello
 
-3.5.1  Arquivos: ./terraform/environments/dev/main.tf 
+- dev
+- pro
++infra
+- hello
+
+3.5.1  Arquivos: ./terraform/environments/dev/main.tf
 
 - Arquivo com a configuração do módulo em desenvolvimento.
 
@@ -454,6 +470,7 @@ module "hello" {
 3.5.2 Arquivo: ./terraform/infra/hello/aws_dynamodb_table.tf
 
 - Injeção das variaveis desclaradas no ./terraform/infra/hello/**variables.tf**
+
 ```
 resource "aws_dynamodb_table" "hello_wold" {
   
@@ -493,11 +510,10 @@ variable "write_capacity" {
 
 terraform destroy -auto-approve
 
-
-
 ## **4. Aula 29** - _Implementação Lambda Register_
 
-4.1 Instalando componentes npm 
+4.1 Instalando componentes npm
+
 ```
 cd /api
 npm init
@@ -507,5 +523,3 @@ npm i bcryptjs
 # como dev
 npm i aws-sdk --save-dev
 ```
-
-
