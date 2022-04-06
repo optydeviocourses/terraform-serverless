@@ -21,8 +21,8 @@
 ## AWS CONFIGURE
 ## usuario: terraform-serverless
 > aws configure 
-> AWS Access Key ID [****************RVCA]: AKIA5LZOAHQXD2PWO7UC
-> AWS Secret Access Key [****************ZK4l]: 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
+> AWS Access Key ID [****************RVCA]: 
+> AWS Secret Access Key [****************ZK4l]: 
 > Default region name [sa-east-1]: 
 > Default output format [json]: 
 ```
@@ -41,8 +41,8 @@
 ```
 sls config credentials 
   --provider "aws" 
-  --key "AKIA5LZOAHQXD2PWO7UC" 
-  --secret "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" -o 
+  --key "" 
+  --secret "" -o 
 ```
 
 ```
@@ -98,7 +98,6 @@ Serverless: Uploading service hello-world.zip file to S3 (390 B)...
 Serverless: Validating template...
 Serverless: Updating Stack...
 Serverless: Checking Stack update progress...
-
 ```
 
 #### - _sls remove_
@@ -139,7 +138,7 @@ Serverless: Stack delete finished...
 > terraform -v
 
 ## Resultado
-/Volumes/ROBERTO-CD2/Dev/Projetos/aws/terraform-serverless (master ✘)✹ ᐅ terraform -v       
+/Volumes/ROBERTO-CD2/Dev/Projetos/aws/terraform-serverless (master ✘)✹ ᐅ terraform -v
 Terraform v0.14.4
 
 ```
@@ -413,7 +412,7 @@ environment = "dev"
 
 ```
 resource "aws_dynamodb_table" "hello_wold" {
-  
+
   name = "${var.environment}_hello_wold"
   hash_key = "id"
   write_capacity = 1
@@ -442,12 +441,10 @@ resource "aws_dynamodb_table" "hello_wold" {
 
 ```
 module "hello" {
-  
   source      = "../../infra/hello"
   environment = "${var.environment}"
   write_capacity = 1
   read_capacity = 1
-  
 }
 ```
 
@@ -457,12 +454,10 @@ module "hello" {
 
 ```
 module "hello" {
-  
   source      = "../../infra/hello"
   environment = "${var.environment}"
   write_capacity = 10
   read_capacity = 10
-  
 }
 ```
 
@@ -472,10 +467,9 @@ module "hello" {
 
 ```
 resource "aws_dynamodb_table" "hello_wold" {
-  
   name = "${var.environment}-hello-wold"
   hash_key = "id"
- 
+
   attribute {
     name = "id"
     type = "S"
