@@ -1,7 +1,8 @@
 {
-  "name": "api",
+  "name": "register",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "",
+  "main": "handler.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,6 +14,5 @@
   },
   "devDependencies": {
     "aws-sdk": "^2.1109.0"
-  },
-  "description": ""
+  }
 }
