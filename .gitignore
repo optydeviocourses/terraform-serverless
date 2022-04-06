@@ -107,6 +107,6 @@ dist
 .terraform.lock.hcl
 .terraform/
 
-.txt
-.env
+*.txt
+*.env
 
