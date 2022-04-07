@@ -25,4 +25,4 @@ module.exports.register = async (event) => {
     statusCode: 201,
     body: JSON.stringify({ message: 'Usuário inserido com sucesso' })
   }
-};
+}
