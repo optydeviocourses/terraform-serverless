@@ -1,3 +1,18 @@
+
+credentials "app.terraform.io" {
+  token = "Jru1gNOBUhh2cQ.atlasv1.VVzuBIXw7MZdsWJWhTIqYl5G1M3ZqZvpiz27BQHWm3noY6LAm5XBGc4KqzkccqBdzb4"
+}
+
+terraform {
+  cloud {
+    organization = "carlosrobertodevops"
+
+    workspaces {
+      name = "terraform-serverless"
+    }
+  }
+}
+
 module "users" {
   source         = "../../infra/users"
   environment    = var.environment
