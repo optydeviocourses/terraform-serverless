@@ -6,7 +6,7 @@ AWS.config.update({
 })
 
 const bcrypt = require('bcryptjs')
-const { v4: uuidv4 } = require('uuid')
+const { v4: uuid4 } = require('uuid')
 
 const documentClient = new AWS.DynamoDB.DocumentClient()
 module.exports.register = async (event) => {
